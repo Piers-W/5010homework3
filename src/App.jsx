@@ -34,6 +34,7 @@ export default function App() {
 
     if (updatedProducts.length / productsPerPage > currentPage) {
       setCurrentPage(currentPage + 1);
+      setTimeout(() => window.scrollTo(0, 0), 0);
     }
   };
 
@@ -85,8 +86,11 @@ export default function App() {
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const totalPages = Math.ceil(products.length / productsPerPage);
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0);
+  };
 
   let pages = [];
   for (let i = 1; i <= totalPages; i++) {
