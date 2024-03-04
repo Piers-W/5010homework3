@@ -110,7 +110,7 @@ export default function App() {
             onDeleteProduct={onDeleteProduct}
             onEditProduct={onEditProduct}
           />
-          <CreatProductForm onAddProduct={onAddProduct} />
+          
           {showUpdateModal && currentProduct && (
             <UpdateProduct
               show={showUpdateModal}
@@ -147,6 +147,7 @@ export default function App() {
             }}
           />
         </div>
+        <CreatProductForm onAddProduct={onAddProduct} />
       </div>
     </div>
   );
